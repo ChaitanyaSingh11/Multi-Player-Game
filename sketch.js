@@ -2,6 +2,7 @@ var database;
 var gameState = 0;
 var playerCount = 0;
 var form, player, game;
+var allPlayers;
 
 function setup() {
   database = firebase.database();
@@ -13,4 +14,11 @@ function setup() {
   game.start();
 }
 
-function draw() {}
+function draw() {
+  if(playerCount==4)
+  game.update(1);
+  if(gameState==1){
+    clear();
+    game.play();
+  }
+}
